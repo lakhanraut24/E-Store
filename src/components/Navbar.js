@@ -83,7 +83,7 @@ const Navbar = () => {
             <div style={cartstyle}>
                
                 <img className="ml-2  " src="/Images/cart.png" alt="cart-icon" />
-                <span className="pt-2 font-bold"> 5</span>
+                <span className="pt-2 font-bold"> cart(0)</span>
                
               </div>
             </Link>
