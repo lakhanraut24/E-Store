@@ -1,10 +1,31 @@
-import React from 'react';
-import { Link,  } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
  
+   function login() {
+   
+     let items = { password, email };
+     console.log(items);
+     fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAesIAATQ7n0s65TrXchi0S7jO942U8CzA', {
+      
+       method: "POST",
+        
+       body: JSON.stringify(items),
+        
+       headers: {
+           "Content-type": "application/json"
+       }
+   })
+   .then(response => response.json())
+   .then(json => {console.log(json)});
+   navigate("/Account")
+     
+   }
 
   return (
     <><div class="antialiased bg-gradient-to-br from-blue-300 to-white">
@@ -39,11 +60,13 @@ const Login = () => {
               <h2 class="text-4xl font-bold text-gray-800 text-left mb-5">
                 LOGIN
               </h2>
-              <form action="" class="w-full">
+              <form action="" method="post" class="w-full">
                 <div id="input" class="flex flex-col w-full my-5">
                   <label for="username" class="text-gray-500 mb-2"
                   >Username</label>
                   <input
+                   onChange={(e) =>setEmail(e.target.value)}
+            value={email}
                     type="text"
                     id="username"
                     placeholder="Please insert your username"
@@ -54,6 +77,8 @@ const Login = () => {
                   <label for="password" class="text-gray-500 mb-2"
                   >Password</label>
                   <input
+                   onChange={(e) =>setPassword(e.target.value)}
+            value={password}
                     type="password"
                     id="password"
                     placeholder="Please insert your password"
@@ -63,7 +88,7 @@ const Login = () => {
                 </div>
                 <div id="button" class="flex flex-col w-full my-5">
                   <button
-                  
+                   onClick={login}
                     type="button"
                     class="w-full py-4 bg-green-500 rounded-lg text-green-100 w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-500 focus:outline-none my-1"
                   >
