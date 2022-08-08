@@ -1,43 +1,31 @@
-import React, { useContext }  from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../CartContext';
+
 
 const Product = (props) => {
- const {cart, setCart} = useContext(CartContext)
-   const {product} = props;
-   const addToCart = (e, product) =>{
-    e.preventDefault();
-    let _cart = { ...cart};
-    if(!_cart.items){
-      _cart.items ={
 
-      }
-    }
-    if(_cart.items[product.id]){
-      _cart.items[product.id] += 1;
-    }else{
-      _cart.items[product.id] = 1;
-    }
-    if(_cart.totalItems){
-      _cart.totalItems =0;
-    }
-    _cart.totalItems += 1;
-    setCart(_cart);
-   }
+   const {product} = props;
+   
   return (
 <Link to={`/products/${product.id}`}>
-<div className='container mx-auto border-solid border-4 border-blue-300 p-5 bg-blue-100'>
-        <img src={product.image}  />
-        <div className="text-center">
-          <h2 className="text-lg font-bold py-2">{product.title}</h2>
+<div className=' group relative '>
+
+      <div className='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1  rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none p-10 border-solid border-2 border-blue-300  '>
+      <div className="text-center ">
+          <h2 className="  text-gray-500">{product.title}</h2>
           
         </div>
-        <div className="flex  justify-between items-center mt-4">
-          <span className='text-lg font-bold my-8'>$ {product.price}</span>
-          <button onClick={(e) => {addToCart(e,product)}} className='bg-blue-600  py-1 px4 rounded-full font-bold border-solid border-4 border-blue-600 text-white'>
+        <img src={product.image}  />
+       
+        </div>
+       
+        <div className="flex  justify-between items-center mt-6 ">
+          <span className='text-lg font-bold text-gray-900'>$ {product.price}</span>
+          <button  className='bg-blue-600 border-solid border-2 border-blue-600 rounded-3xl  px4  font-bold border-solid border-4 border-blue-600 text-white'>
             ADD
           </button>
         </div>
+        
       </div>
 </Link>
     
