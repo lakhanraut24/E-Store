@@ -14,7 +14,7 @@ const Banner = () => {
                 <SwiperSlide >
                     <img 
                         className="object-fill w-full  h-50 "
-                        src="assets/Images/slider-bg.jpg"
+                        src="images/banner.jpg"
                         alt="image slide 1"
    
                     />
@@ -23,14 +23,14 @@ const Banner = () => {
                 <SwiperSlide>
                     <img
                         className="object-fill w-full h-50"
-                        src="assets/Images/banner2.jpg"
+                        src="images/banner1.jpg"
                         alt="image slide 2"
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         className="object-fill w-full h-50 "
-                        src="assets/Images/b4.jpg"
+                        src="images/b2.jpg"
                         alt="image slide 3"
                     />
                 </SwiperSlide>
