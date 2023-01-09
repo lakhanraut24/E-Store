@@ -10,6 +10,7 @@ import SingleItem from "./Pages/SingleItem";
 import Footer from "./components/Footer";
 import {CartContext} from "./CartContext";
 import { useEffect, useState } from "react";
+import Banner from "./components/Banner";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
        <CartContext.Provider value={{ cart, setCart}}>
           <PreNavbar />
           <Navbar />
-
+<Banner/>
           <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/SignUp" element={<Signup />} />
